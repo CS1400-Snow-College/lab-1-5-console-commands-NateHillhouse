@@ -6,10 +6,10 @@ Console.Clear();
 ConsoleColor red = ConsoleColor.Red;
 ConsoleColor blue = ConsoleColor.DarkCyan;
 ConsoleColor tan = ConsoleColor.Gray;
-ConsoleColor yellow = ConsoleColor.DarkYellow;
+ConsoleColor yellow = ConsoleColor.Yellow;
 ConsoleColor darkBlue = ConsoleColor.DarkBlue;
-ConsoleColor green = ConsoleColor.Gray;
-ConsoleColor Black = ConsoleColor.Black;
+ConsoleColor boots = ConsoleColor.DarkGreen;
+ConsoleColor black = ConsoleColor.Black;
 string block = "  ";
 int space = block.Length;
 
@@ -20,7 +20,7 @@ int space = block.Length;
 Console.BackgroundColor = blue;
 
 //Write the Light Blue (Cyan) sections
-for (int i = 0; i <= 17; i++)
+for (int i = 0; i <= 18; i++)
 {
     for (int x = 0; x <= 13; x++)
     {
@@ -139,6 +139,51 @@ for (int i = 3; i <= 10; i++)
     }
 }
 
+
+
+//Marios Face
+Console.BackgroundColor = black;
+Console.SetCursorPosition(0, 0);
+for (int x = 3; x <= 6; x++)
+{
+    for (int i = 2; i <= 11; i++)
+    {
+        Console.SetCursorPosition(i * space, x);
+        if (x == 3)
+        {
+            if (i < 6 && i != 2) Console.Write(block);
+            else if (i == 8) Console.Write(block);
+        }
+        else if (x == 4 && (i == 2 ^ i == 4 ^ i == 8)) Console.Write(block);
+        else if (x == 5 && (i == 2 ^ i == 4 ^ i == 5 ^ i == 9)) Console.Write(block);
+        else if (x == 6 && (i < 4 ^ i > 7)) Console.Write(block);
+        else continue;
+    }
+}
+
+
+//Boots
+Console.BackgroundColor = boots;
+for (int i = 1; i <= 11; i++)
+{
+    for (int x = 15; x <= 16; x++)
+    {
+
+        Console.SetCursorPosition(i * space, x);
+        if (x == 15 && ((i > 1 && i < 5) ^ (7 < i && i < 11)))
+        {
+            Console.Write(block);
+        }
+        else if (x == 16 && (i < 5 ^ i > 7)) Console.Write(block);
+    }
+}
+
+//Overall Buttons
+Console.BackgroundColor = yellow;
+Console.SetCursorPosition(5*space, 12);
+Console.Write(block);
+Console.SetCursorPosition(8*space, 12);
+Console.Write(block);
 
 
 Console.SetCursorPosition(0, 17);
